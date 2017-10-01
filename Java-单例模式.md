@@ -138,19 +138,18 @@ public class Singleton3 {
 * 如果你的代码所在的进程中有多个线程在同时运行，而这些线程可能会同时运行这段代码。如果每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，就是线程安全的。或者说：一个类或者程序所提供的接口对于线程来说是原子操作，或者多个线程之间的切换不会导致该接口的执行结果存在二义性,也就是说我们不用考虑同步的问题，那就是线程安全的。
 ### 单例模式的应用
 ```java 
-public class TestSingleton {  
+public class DataTest {  
     String name = null;  
   
-        private TestSingleton() {  
-    }  
+    private DataTest() {}  
   
-    private static volatile TestSingleton instance = null;  
+    private static volatile DataTest instance = null;  
   
-    public static TestSingleton getInstance() {  
+    public static DataTest getInstance() {  
            if (instance == null) {    
-             synchronized (TestSingleton.class) {    
+             synchronized (DataTest.class) {    
                 if (instance == null) {    
-                   instance = new TestSingleton();   
+                   instance = new DataTest();   
                 }    
              }    
            }   
@@ -168,27 +167,23 @@ public class TestSingleton {
     public void printInfo() {  
         System.out.println("the name is " + name);  
     }  
-  
-}  
-```
-```java 
-public class TMain {  
-    public static void main(String[] args){  
-        TestStream ts1 = TestSingleton.getInstance();  
-        ts1.setName("jason");  
-        TestStream ts2 = TestSingleton.getInstance();  
-        ts2.setName("0539");  
-          
-        ts1.printInfo();  
-        ts2.printInfo();  
-          
-        if(ts1 == ts2){  
-            System.out.println("创建的是同一个实例");  
-        }else{  
-            System.out.println("创建的不是同一个实例");  
-        }  
-    }  
-}  
+    
+       public static void main(String[] args) {
+    	   DataTest ts1 = DataTest.getInstance();  
+           ts1.setName("jason");  
+           
+           DataTest ts2 = DataTest.getInstance();  
+           ts2.setName("0539");  
+           
+           ts1.printInfo();  
+           ts2.printInfo();   
+           if(ts1 == ts2){  
+               System.out.println("创建的是同一个实例");  
+           }else{  
+               System.out.println("创建的不是同一个实例");  
+           }  
+       }
+}
 ```
 * 运行结果：`the name is 0539`
            `the name is 0539`
