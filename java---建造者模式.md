@@ -218,3 +218,77 @@ Item : Chicken Burger, Packing : Wrapper, Price : 50.5
 Item : Pepsi, Packing : Bottle, Price : 35.0
 Total Cost: 85.5
 ```
+## 示例代码
+```java
+public class Car {
+    private String name;
+    private int seat;
+    private double money;
+    private String color;
+
+    public Car(Builder mBuilder) {
+        name = mBuilder.name;
+        seat = mBuilder.seat;
+        money = mBuilder.money;
+        color = mBuilder.color;
+    }
+
+    @Override
+    public String toString() {
+        return name+seat+money+color;
+    }
+
+    public static class Builder{
+        private String name;
+        private int seat;
+        private double money;
+        private String color;
+
+        public Builder setName(String mName){
+            this.name=mName;
+            return this;
+        }
+
+        public Builder setSeat(){
+            this.seat=4;
+            return this;
+        }
+
+        public Builder setMoney(double mMoney){
+            this.money=mMoney;
+            return this;
+        }
+
+        public Builder setColor(String mColor){
+            this.color=mColor;
+            return  this;
+        }
+
+        public Car build(){
+            return  new Car(this);
+        }
+
+    }
+}
+```
+```java
+public class BuilderDemo {
+
+	public static void main(String args[]) {
+		Car.Builder mBuilder = new Car.Builder()
+				.setName("baoma")
+				.setColor("red")
+				.setSeat()
+				.setMoney(1000);
+		Car mCar = mBuilder.build();
+		System.out.println(mCar.toString());
+	}
+}
+```
+### 输出结果
+```
+name:baoma 
+seat:4 
+money:1000.0 
+color:red
+```
