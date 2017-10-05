@@ -60,3 +60,4 @@
 * 拦截过滤器模式（Intercepting Filter Pattern）
 * 服务定位器模式（Service Locator Pattern）
 * 传输对象模式（Transfer Object Pattern）
+http://www.runoob.com/design-pattern/design-pattern-tutorial.html
