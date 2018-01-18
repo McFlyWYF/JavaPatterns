@@ -23,7 +23,7 @@
 * 合成复用原则是指：尽量使用合成/聚合的方式，而不是使用继承。
 
 ### 设计模式分类
-#### 1	创建型模式
+#### 1	[创建型模式](https://github.com/wangyufei1006/JavaPatterns/tree/master/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F)
 * 这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式，而不是使用 new 运算符直接实例化对象。这使得程序在判断针对某个给定实例需要创建哪些对象时更加灵活。
  * 工厂模式（Factory Pattern）
  * 抽象工厂模式（Abstract Factory Pattern）
