@@ -1,2 +1,1 @@
-# JavaPatterns
-JavaPatterns
+# Java
